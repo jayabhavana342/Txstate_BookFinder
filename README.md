@@ -24,7 +24,7 @@ The scope of this project is to create and implement a website for the Texas Sta
 
 Below software's should be installed to run the Project:
 * [Python Virtual Environment](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)
-* [Python 2.7](https://www.python.org/downloads/)
+* [Python 3.6.4](https://www.python.org/downloads/)
 
 #### Course
 
