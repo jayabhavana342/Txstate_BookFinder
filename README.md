@@ -3,7 +3,7 @@
 The scope of this project is to create and implement a website for the Texas State University Bookstore named BookFinder. The website will be used primarily by Texas State students and allow users to create and maintain individual accounts, search the Texas State Bookstore database for textbooks, and purchase books online with credit cards. It is easier, quicker, and more convenient to purchase Books from BookFinder.
 
 ## System Overview
-![BookFinder-System-Overview](https://github.com/jayabhavana342/Txstate-BookFinder/blob/master/BookFinder-System.png)
+![bookfinder-system](https://user-images.githubusercontent.com/26471348/37696440-8177acfe-2ca4-11e8-821f-b1c596fe44c0.png)
 
 ## Features
 
