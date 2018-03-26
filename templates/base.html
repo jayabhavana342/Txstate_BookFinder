@@ -7,6 +7,7 @@
 
 <body style="background-color: rgb(232, 227, 219)">
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
 <div class="col">
     <div class="row">
@@ -46,6 +47,17 @@
         </div>
     </div>
 
+    <nav aria-label="breadcrumb" style="color: black; font-family: 'Berkshire Swash', cursive">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page">Home</li>
+            {% if user.is_authenticated %}
+                <li class="breadcrumb-item" aria-current="page">Purchase History</li>
+            {% endif %}
+            <li class="breadcrumb-item" aria-current="page">Contact Us</li>
+            <li class="breadcrumb-item" aria-current="page">Help</li>
+        </ol>
+    </nav>
+
     <div class="row">
         {% if user.is_authenticated %}
             <div class="col">
@@ -56,8 +68,24 @@
                         <div class="container-fluid jumbotron border border-danger" style="background-color: #501214;">
                             <div style="color:white; font-family: 'Berkshire Swash', cursive">
                                 {% block content %}
-                                    <h3 style="text-align: center;">
-                                        Welcome {{ user.last_name }} {{ user.first_name }}!!</h3>
+                                    <h4 style="text-align: right;">
+                                        Welcome {{ user.last_name }} {{ user.first_name }}!!</h4>
+
+                                    <form method="post" novalidate>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ next }}">
+                                        <div style="color:white">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    {{ form.select_type_of_search }}
+                                                    {{ form.search }}
+                                                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">
+                                                        Search
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 {% endblock %}
                             </div>
                         </div>
@@ -92,6 +120,11 @@
         </footer>
     </div>
 </div>
+
+{% include 'snippets/js.html' %}
+{% block javascript %}
+    <script type="text/javascript"></script>
+{% endblock %}
 
 </body>
 </html>

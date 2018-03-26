@@ -4,9 +4,9 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, FormView
 
-from booksgallery.forms.customer import CustomerSignUpForm
+from booksgallery.forms.customer import CustomerSignUpForm, SelectSearchForm
 from booksgallery.models import User
 from booksgallery.decorators import customer, admin
 
@@ -27,5 +27,6 @@ class CustomerSignUpView(CreateView):
 
 
 @method_decorator([login_required, customer.customer_required], name='dispatch')
-class CustomerHomePage(TemplateView):
+class CustomerHomePage(FormView):
+    form_class = SelectSearchForm
     template_name = 'customer_home.html'
