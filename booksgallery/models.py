@@ -18,6 +18,8 @@ class CreditCardDetails(models.Model):
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
 
 
 class BookDetails(models.Model):

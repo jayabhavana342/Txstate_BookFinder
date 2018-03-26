@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block welcome %}
+    <div style="background-color: #501214;" class="jumbotron">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <div style="color:white">
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Sign up</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
