@@ -25,6 +25,10 @@ class SelectSearchForm(forms.Form):
         (1, "Select Search Type"),
         (2, "ISBN"),
         (3, "Title"),
+        (4, "Author"),
+        (5, "Course"),
+        (6, "Professor"),
+
     )
     select_type_of_search = forms.ChoiceField(choices=CHOICES)
     search = forms.CharField(

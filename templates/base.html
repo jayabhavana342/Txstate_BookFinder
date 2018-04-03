@@ -68,24 +68,7 @@
                         <div class="container-fluid jumbotron border border-danger" style="background-color: #501214;">
                             <div style="color:white; font-family: 'Berkshire Swash', cursive">
                                 {% block content %}
-                                    <h4 style="text-align: right;">
-                                        Welcome {{ user.last_name }} {{ user.first_name }}!!</h4>
 
-                                    <form method="post" novalidate>
-                                        {% csrf_token %}
-                                        <input type="hidden" name="next" value="{{ next }}">
-                                        <div style="color:white">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    {{ form.select_type_of_search }}
-                                                    {{ form.search }}
-                                                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">
-                                                        Search
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
                                 {% endblock %}
                             </div>
                         </div>

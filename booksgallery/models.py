@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+
 class CreditCardDetails(models.Model):
     CHOICES = (
         ("VISA", "VISA"),
@@ -26,8 +27,8 @@ class BookDetails(models.Model):
     isbn = models.CharField(max_length=100, null=False)
     title = models.CharField(max_length=500, null=False)
     authors = models.CharField(max_length=500, null=False)
-    price = models.DecimalField(decimal_places=2, max_digits=3, max_length=10, null=False)
-    image = models.ImageField(width_field=30, height_field=40, null=False)
+    price = models.DecimalField(decimal_places=2, max_digits=5, max_length=10, null=False)
+    image = models.ImageField(upload_to='books_images', null=False)
     publish_date = models.DateField()
 
     def __str__(self):
@@ -36,33 +37,35 @@ class BookDetails(models.Model):
 
 class ShoppingCart(models.Model):
     id = models.UUIDField(primary_key=True, max_length=10)
-    books = models.ForeignKey(BookDetails, on_delete=models.CASCADE)
+    books = models.ForeignKey(BookDetails, on_delete=models.CASCADE, related_name='cart_books')
 
     def __str__(self):
         return self.id
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='researchers')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='customer')
     shoppingCart = models.OneToOneField(ShoppingCart, on_delete=models.CASCADE)
     cards = models.ForeignKey(CreditCardDetails, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
 
+class ProfessorDetail(models.Model):
+    name = models.CharField(max_length=100, null=False)
+    website = models.URLField()
+
+    def __str__(self):
+        return self.name
+
 
 class Courses(models.Model):
     course_id = models.CharField(max_length=10, null=False)
     course_name = models.CharField(max_length=100, null=False)
+    professor = models.ForeignKey(ProfessorDetail, on_delete=models.CASCADE, related_name='courses_professor')
 
     def __str__(self):
         return self.course_id
 
 
-class ProfessorDetail(models.Model):
-    name = models.CharField(max_length=100, null=False)
-    website = models.URLField()
-    course_thought = models.ForeignKey(Courses, on_delete=models.CASCADE, blank=True)
 
-    def __str__(self):
-        return self.name

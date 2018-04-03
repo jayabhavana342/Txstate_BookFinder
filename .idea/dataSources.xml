@@ -12,11 +12,11 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="txstatebookfinder@localhost" uuid="e962b8b0-f571-4274-868a-f490a9e12254">
+    <data-source source="LOCAL" name="@localhost" uuid="cf468ea3-3f44-4005-949d-09be7ba5aeab">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/txstatebookfinder</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

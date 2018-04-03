@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, TemplateView, FormView
 
 from booksgallery.forms.customer import CustomerSignUpForm, SelectSearchForm
-from booksgallery.models import User
+from booksgallery.models import User, BookDetails
 from booksgallery.decorators import customer, admin
 
 
@@ -30,3 +30,12 @@ class CustomerSignUpView(CreateView):
 class CustomerHomePage(FormView):
     form_class = SelectSearchForm
     template_name = 'customer_home.html'
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['books'] = BookDetails.objects.all()
+
+        return context
+
