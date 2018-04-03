@@ -1,0 +1,11 @@
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (1, 'CS5301', 'Advanced Programming Practicum');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (2, 'CS4354', 'Object Oriented Design and Implementation');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (3, 'CS3358', 'Data Structures');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (4, 'CS4328', 'Operating Systems');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (5, 'CS5391', 'Roger S Pressman');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (6, 'CS3354', 'Object Oriented Design and Patterns');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (7, 'CS4332', 'Introduction to Database Systems');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (8, 'CS5310', 'Computer Networks and Communication Systems');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (9, 'CS5343', 'Wireless Communication Networks and Systems');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (10, 'CS5389', 'Graphical User Interface');
+INSERT INTO txstatebookfinder.booksgallery_courses (id, course_id, course_name) VALUES (11, 'CS5306', 'Advanced Operating Systems');

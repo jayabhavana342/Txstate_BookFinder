@@ -1,0 +1,12 @@
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (1, 'admin', 'logentry');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (3, 'auth', 'group');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (2, 'auth', 'permission');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (10, 'booksgallery', 'bookdetails');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (7, 'booksgallery', 'courses');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (11, 'booksgallery', 'creditcarddetails');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (12, 'booksgallery', 'customer');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (8, 'booksgallery', 'professordetail');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (9, 'booksgallery', 'shoppingcart');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (6, 'booksgallery', 'user');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (4, 'contenttypes', 'contenttype');
+INSERT INTO txstatebookfinder.django_content_type (id, app_label, model) VALUES (5, 'sessions', 'session');
