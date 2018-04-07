@@ -7,7 +7,7 @@
     <h4 style="text-align: right;">
         Welcome {{ user.last_name }} {{ user.first_name }}!!</h4>
 
-    <form method="post" novalidate>
+    <form method="get" action="" novalidate>
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}">
         <div style="color:white">
@@ -25,7 +25,7 @@
 
     <hr style="border-top: 3px double azure">
 
-    {% for book in books %}
+    {% for book in object_list %}
         <div class="card flex-md-row mb-4 box-shadow h-md-250" style="color: black">
             <div class="card-body d-flex flex-column align-items-start">
                 <strong class="d-inline-block mb-2 text-success"
@@ -37,10 +37,15 @@
                 <div class="mb-1 text-muted">Published On: {{ book.publish_date }}</div>
                 <p class="card-text mb-auto text-warning" style="font-family: 'Comic Sans MS',cursive">Price:
                     ${{ book.price }}</p>
+                {% if book.stock == 0 %}
+                    <span style="color: red">Out of Stock</span>
+                {% else %}
+                    <span style="color: green">In Stock ({{ book.stock }} Items Available)</span>
+                {% endif %}
                 <a href="#">Add to Cart</a>
             </div>
             <img class="card-img-right flex-auto d-none d-md-block" alt="Card image cap"
-                 src="{% static book.image.url %}"  width="170px" height="200px">
+                 src="{% static book.image.url %}" width="170px" height="250px">
         </div>
     {% endfor %}
 

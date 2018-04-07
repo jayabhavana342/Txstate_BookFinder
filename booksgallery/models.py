@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.db.models import Q
 
 
 class CreditCardDetails(models.Model):
@@ -30,6 +30,15 @@ class BookDetails(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=5, max_length=10, null=False)
     image = models.ImageField(upload_to='books_images', null=False)
     publish_date = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    available = models.BooleanField(default=True)
+    stock = models.PositiveIntegerField()
+    slug = models.SlugField(max_length=200, db_index=True)
+
+    class Meta:
+        ordering = ('-created',)
+        index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.title
@@ -51,6 +60,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class ProfessorDetail(models.Model):
     name = models.CharField(max_length=100, null=False)
     website = models.URLField()
@@ -66,6 +76,3 @@ class Courses(models.Model):
 
     def __str__(self):
         return self.course_id
-
-
-
