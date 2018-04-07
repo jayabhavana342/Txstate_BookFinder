@@ -75,9 +75,24 @@
                     </div>
                     <div class="col-3">
                         <div class="container-fluid jumbotron border border-danger" style="background-color: black">
-                            {% block sidebar %}
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted">Your cart</span>
+                                <span class="badge badge-secondary badge-pill">{% block cart-items-count %}{% endblock %}</span>
+                            </h4>
+                            <ul class="list-group mb-3">
+                                {% block cart-items %}
 
-                            {% endblock %}
+                                {% endblock %}
+                            </ul>
+
+                            <form class="card p-2">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Promo code">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

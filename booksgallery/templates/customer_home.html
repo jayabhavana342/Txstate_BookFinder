@@ -25,6 +25,8 @@
 
     <hr style="border-top: 3px double azure">
 
+    <h5 style="text-align: right">{{ object_list.count }} result{{ object_list.count|pluralize }} found.</h5>
+
     {% for book in object_list %}
         <div class="card flex-md-row mb-4 box-shadow h-md-250" style="color: black">
             <div class="card-body d-flex flex-column align-items-start">
@@ -38,9 +40,9 @@
                 <p class="card-text mb-auto text-warning" style="font-family: 'Comic Sans MS',cursive">Price:
                     ${{ book.price }}</p>
                 {% if book.stock == 0 %}
-                    <span style="color: red">Out of Stock</span>
+                    <span style="color: red;font-family: 'Comic Sans MS',cursive">Out of Stock</span>
                 {% else %}
-                    <span style="color: green">In Stock ({{ book.stock }} Items Available)</span>
+                    <span style="color: green;font-family: 'Comic Sans MS',cursive">In Stock ({{ book.stock }} Item{{ book.stock|pluralize }} Available)</span>
                 {% endif %}
                 <a href="#">Add to Cart</a>
             </div>
@@ -49,4 +51,18 @@
         </div>
     {% endfor %}
 
+{% endblock %}
+
+{% block cart-items-count %}
+
+{% endblock %}
+
+{% block cart-items %}
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+            <h6 class="my-0">Product name</h6>
+            <small class="text-muted">Brief description</small>
+        </div>
+        <span class="text-muted">$12</span>
+    </li>
 {% endblock %}
