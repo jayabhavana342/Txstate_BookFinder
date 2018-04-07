@@ -56,9 +56,10 @@ class CustomerHomePage(FormMixin, ListView):
         elif choice == 4:
             object_list = BookDetails.objects.filter(authors__icontains=query)
         elif choice == 5:
-            object_list = BookDetails.objects.filter(course__icontains=query)
+            object_list = BookDetails.objects.filter(Q(course_books__course_name__icontains=query) |
+                                                     Q(course_books__course_id__icontains=query)).distinct()
         elif choice == 6:
-            object_list = BookDetails.objects.filter(professor__icontains=query)
+            object_list = BookDetails.objects.filter(course_books__professor__name__icontains=query)
         else:
             object_list = BookDetails.objects.all()
 

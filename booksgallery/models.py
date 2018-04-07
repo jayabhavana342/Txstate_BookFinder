@@ -72,7 +72,8 @@ class ProfessorDetail(models.Model):
 class Courses(models.Model):
     course_id = models.CharField(max_length=10, null=False)
     course_name = models.CharField(max_length=100, null=False)
-    professor = models.ForeignKey(ProfessorDetail, on_delete=models.CASCADE, related_name='courses_professor')
+    professor = models.ForeignKey(ProfessorDetail, on_delete=models.CASCADE, null=True, related_name='course_professors')
+    book = models.ForeignKey(BookDetails, on_delete=models.CASCADE, null=True, related_name='course_books')
 
     def __str__(self):
         return self.course_id
