@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" style="color:white; font-family: 'Berkshire Swash', cursive">
                         <div class="container-fluid jumbotron border border-danger" style="background-color: black">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-muted">Your cart</span>
@@ -83,16 +83,19 @@
                                 {% block cart-items %}
 
                                 {% endblock %}
+                                <li class="list-group-item d-flex justify-content-between"
+                                    style="color:black; font-family: 'Berkshire Swash', cursive">
+                                    <span><b>Total (USD)</b>ith</span>
+                                    <strong>
+                                        ${% block total-price %}
+                                    {% endblock %}
+                                    </strong>
+                                </li>
                             </ul>
 
-                            <form class="card p-2">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                                    </div>
-                                </div>
-                            </form>
+                            {% block cart-promo-code %}
+
+                            {% endblock %}
                         </div>
                     </div>
                 </div>

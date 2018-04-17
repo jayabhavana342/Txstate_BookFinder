@@ -45,8 +45,14 @@ class BookDetails(models.Model):
 
 
 class ShoppingCart(models.Model):
+    CHOICES = (
+        (0, 'completed'),
+        (1, 'progress'),
+    )
     id = models.UUIDField(primary_key=True, max_length=10)
-    books = models.ForeignKey(BookDetails, on_delete=models.CASCADE, related_name='cart_books')
+    books = models.ForeignKey(BookDetails, on_delete=models.CASCADE, null=True, related_name='cart_books')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, related_name='cart_user')
+    checkout = models.CharField(choices=CHOICES, max_length=1, default=1)
 
     def __str__(self):
         return self.id
@@ -72,7 +78,8 @@ class ProfessorDetail(models.Model):
 class Courses(models.Model):
     course_id = models.CharField(max_length=10, null=False)
     course_name = models.CharField(max_length=100, null=False)
-    professor = models.ForeignKey(ProfessorDetail, on_delete=models.CASCADE, null=True, related_name='course_professors')
+    professor = models.ForeignKey(ProfessorDetail, on_delete=models.CASCADE, null=True,
+                                  related_name='course_professors')
     book = models.ForeignKey(BookDetails, on_delete=models.CASCADE, null=True, related_name='course_books')
 
     def __str__(self):

@@ -78,9 +78,18 @@
         <li class="list-group-item d-flex justify-content-between lh-condensed"
             style="color:black; font-family: 'Berkshire Swash', cursive">
             <div>
-                <h6 class="my-0">{{ item.title }} </h6>
+                <h6 class="my-0">{{ item.book }} </h6>
                 <br>
                 Quantity: {{ item.quantity }}
+                <form method="get" name="form3" novalidate>
+                    <small class="text-muted">Quantity:
+                        <input type="hidden" name="book_id" value="{{ key }}">
+                        {% csrf_token %}
+                        {{ form3.quantity }}
+                        {{ form3.update }}
+                        <input type="submit" value="Update" name="form3">
+                    </small>
+                </form>
             </div>
             <span class="text-muted">${{ item.total_price }}</span>
         </li>
@@ -91,4 +100,15 @@
 
 {% block total-price %}
     {{ cart.get_total_price }}
+{% endblock %}
+
+{% block cart-promo-code %}
+    <form class="card p-2">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+            </div>
+        </div>
+    </form>
 {% endblock %}

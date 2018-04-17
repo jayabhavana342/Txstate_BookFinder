@@ -6,6 +6,8 @@ from django.db import transaction
 
 from booksgallery.models import User
 
+BOOK_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 6)]
+
 
 class CustomerSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
@@ -38,3 +40,10 @@ class SelectSearchForm(forms.Form):
 
     class Meta:
         fields = ['select_type_of_search', 'search']
+
+class CartAddBookForm(forms.Form):
+    quantity = forms.TypedChoiceField(choices=BOOK_QUANTITY_CHOICES,
+                                      coerce=int)
+    update = forms.BooleanField(required=False,
+                                initial=False,
+                                widget=forms.HiddenInput)
